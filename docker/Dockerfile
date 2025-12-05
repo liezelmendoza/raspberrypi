@@ -327,7 +327,6 @@ RUN cp -rf raspberrypi/viper-env-file/viper.env Viperviz/viper.env
 #RUN echo "Copy the IotSolution Scripts"
 RUN echo "Copy UPDATED IotSolution scripts from local machine"
 COPY iotsolution-scripts-data/ /IotSolution/
-RUN mkdir IotSolution
 RUN cp -rf raspberrypi/iotsolution-scripts-data/* IotSolution/
 
 RUN echo "PIP Install TML core packages"
