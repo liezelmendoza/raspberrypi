@@ -314,7 +314,7 @@ RUN chmod -R +x Hpde
 
 
 RUN echo "Replace VIPER.ENV"
-RUN git clone --depth 1 https://github.com/smaurice101/raspberrypi.git
+RUN git clone --depth 1 https://github.com/liezelmendoza/raspberrypi.git
 
 RUN chmod -R +x raspberrypi
 
@@ -324,16 +324,16 @@ RUN cp -rf raspberrypi/viper-env-file/viper.env Viper-preprocess2/viper.env
 
 RUN cp -rf raspberrypi/viper-env-file/viper.env Viperviz/viper.env
 
-RUN echo "Copy the IotSolution Scripts"
-
-#RUN mkdir IotSolution
+#RUN echo "Copy the IotSolution Scripts"
+RUN echo "Copy UPDATED IotSolution scripts from local machine"
+COPY iotsolution-scripts-data/ /IotSolution/
+RUN mkdir IotSolution
 RUN cp -rf raspberrypi/iotsolution-scripts-data/* IotSolution/
 
 RUN echo "PIP Install TML core packages"
 RUN pip install maadstml
 
 RUN cp -rf raspberrypi/tmux-shell-script/tmux-docker.sh tmux/tmux-docker.sh
-
 RUN cp -rf raspberrypi/iot-dashboard-html/viperviz.zip Viperviz/viperviz.zip
 RUN chmod -R +x IotSolution
 RUN chmod -R +x Viperviz
